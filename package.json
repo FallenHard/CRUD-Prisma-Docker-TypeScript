@@ -5,7 +5,7 @@
   "author": "Jake Runzer",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/index.ts",
+    "dev": "ts-node-dev --exit-child --transpile-only --ignore-watch node_modules src/index.ts",
     "build": "yarn migrate:deploy && tsc",
     "start": "node dist/index.js",
     "migrate:dev": "prisma migrate dev",

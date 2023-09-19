@@ -2,9 +2,11 @@
   "compilerOptions": {
     "outDir": "dist",
 
+    "sourceMap": true,
     "incremental": true,
     "target": "es6",
     "module": "commonjs",
+    "lib": ["ESNext"],
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,

@@ -1,18 +1,36 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+generator client {
+  provider = "prisma-client-js"
+}
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-generator client {
-  provider = "prisma-client-js"
+model Agendamento {
+  id          Int      @id @default(autoincrement())
+  id_servico  Int
+  id_convenio Int
+  name        String   @unique 
+  email       String   @unique
+  telephone   Float    @unique
+  date        DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("agendamento")
 }
 
-model User {
-  id        String   @id @default(uuid())
-  name      String
-  email     String
-  createdAt DateTime @default(now())
+model Servico {
+  id          Int      @id @default(autoincrement())
+  name        String
+
+  @@map("servico")
+}
+
+model Convenio {
+  id          Int     @id @default(autoincrement())
+  name        String
+
+  @@map("convenio")
 }
